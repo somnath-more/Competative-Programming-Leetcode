@@ -1,0 +1,63 @@
+
+#include <bits/stdc++.h> 
+using namespace std; 
+//using map 
+
+class Solution
+{   
+public:
+vector<int> repeatedRows(vector<vector<int>> matrix, int R, int C) 
+{ 
+    // Your code here using map//24-04-22
+        string sum="";
+        vector<int>res;
+        unordered_map<string,int>mp;
+        for(int i=0;i<R;i++){//varch half
+            sum="";
+            for(int j=0;j<C;j++){
+                 sum+=to_string(matrix[i][j]);
+            }
+            if(mp.find(sum)!=mp.end()){
+                res.push_back(i);
+            }else{
+                mp[sum]++;  
+            }
+        }
+        return res;
+} 
+};
+
+
+// { Driver Code Starts.
+int main() {
+    int t;
+    cin>>t;
+    while(t--) 
+    {
+        int row, col;
+        cin>> row>> col;
+        vector<vector<int> > matrix(row); 
+        for(int i=0; i<row; i++)
+        {
+            matrix[i].assign(col, 0);
+            for( int j=0; j<col; j++)
+            {
+                cin>>matrix[i][j];
+            }
+        }
+        
+        Solution ob;
+        vector<int> ans = ob.repeatedRows(matrix, row, col);
+
+
+        for (int i = 0; i < ans.size(); ++i)
+        {
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+
+
+  // } Driver Code Ends
