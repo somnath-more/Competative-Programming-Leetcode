@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string removeDigit(string number, char digit) {
+   
+        string str;
+        int flag=0;
+        int j=0;
+        string num="";
+        for(int i=0;i<number.size();i++){
+            
+            if(number[i]==digit && flag<1){
+                flag=1;
+                continue;
+            }else if(j<number.size()){
+                num+=number[i];
+                j++;
+            }
+        }
+        return num;
+    }
+};
+
+//My solution bu not work for all testcases
