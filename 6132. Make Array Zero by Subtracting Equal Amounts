@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums) {
+        sort(nums.begin(),nums.end());//0 1 3 5 5
+        int temp=0;
+        int cnt=0;
+        int n= nums.size();
+        for(int i=0;i<n;i++){
+            //sort(nums.begin(),nums.end());
+            if(nums[i]>0  ){
+                temp=nums[i];
+                cnt++;
+                for(int j=i;j<n;j++){
+                   nums[j]=nums[j]-temp; 
+                }//0 0 2 4 4  // 0 0 0 2 2 //0 0 0 0 0
+                
+            }
+            
+        }
+        return  cnt;
+    }
+};
