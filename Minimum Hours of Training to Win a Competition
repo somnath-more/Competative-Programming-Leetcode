@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minNumberOfHours(int in, int E, vector<int>& energy, vector<int>& exp) {
+        //why there is need of experience
+        int ans=0;
+        for(int i=0;i<energy.size();i++){
+            if(in>energy[i] && E>exp[i]){
+                in-=energy[i];
+                E+=exp[i];
+            }else{
+                if(in<=energy[i]){
+                    ans+=energy[i]-in+1;
+                    in+=energy[i]-in+1;
+                    
+                }else{
+                     ans+=exp[i]-E+1;
+                     E+=exp[i]-E+1;
+                }
+                i--;
+            }
+        }
+        return ans;
+    }
+};
