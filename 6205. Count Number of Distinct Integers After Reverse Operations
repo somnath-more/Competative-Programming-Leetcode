@@ -1,0 +1,19 @@
+class Solution {
+public:
+  int reverse(int n){
+        int temp=0;
+        while(n>0){
+            temp=temp*10+n%10;
+            n=n/10;
+        }
+        return temp;
+    }
+    int countDistinctIntegers(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
+            mp[reverse(nums[i])]++;
+        }
+        return mp.size();
+    }
+};
