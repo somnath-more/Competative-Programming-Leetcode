@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int reverse(int n){
+        int temp=0;
+        while(n>0){
+            temp=temp*10+n%10;
+            n=n/10;
+        }
+        return temp;
+    }
+    bool sumOfNumberAndReverse(int num) {
+        //base approach is that
+        //go from start number and its reverse its addition check wheather is same
+        for(int i=num;i>=0;i--){
+             if(i+reverse(i)==num){
+                 return true;
+                 
+             }
+        }
+        return false;
+    }
+};
