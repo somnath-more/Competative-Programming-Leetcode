@@ -1,0 +1,41 @@
+class Solution {
+public:
+    bool isCircularSentence(string s) {
+        //sentence = "leetcode exercises sound delightful"
+            int i=0,n=s.size()-1;
+       char prev=s[i];
+       int cnt=0;
+          if(s[i]==s[n]){
+              for(int i=0;i<=n;i++){
+                  if(s[i]==' '){
+                     // cout<<"Hi am i"<<endl;
+                      cnt++;
+                  }
+                  if(cnt>1){
+                      break;
+                  }
+              }
+              if(cnt==0){
+                  return true;
+              }
+              while(i<n){
+                if(s[i]==' '){
+                  i++;
+                  if(s[i]==prev){
+                      cout<<prev<<" "<<s[i]<<endl;
+                      return true;
+                  }else{
+                      return false;
+                  }
+                }
+                // }else{
+                //       return true;
+                //   }
+               prev=s[i];
+              i++;
+              }
+          }
+        
+        return false;
+    }
+};
