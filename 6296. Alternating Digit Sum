@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int alternateDigitSum(int n) {
+        string s=to_string(n);
+        cout<<s<<endl;
+        int lsum=0,rsum=0;
+        for(int i=0;i<s.size();i+=2){
+            lsum+=s[i]-'0';
+        }
+        for(int i=1;i<s.size();i+=2){
+            rsum+=s[i]-'0';
+        }
+        return lsum-rsum;
+        
+//         int k=n;
+//         
+//         while(k>0){
+//             lsum+=k%10;
+//             k=k/10;
+            
+//             k=k/10;
+//         }
+//         n=n/10;
+//          while(n>0){
+//             rsum+=n%10;
+//             n=n/10;
+            
+//             n=n/10;
+//          }
+//         return rsum-lsum;
+        
+    }
+};
